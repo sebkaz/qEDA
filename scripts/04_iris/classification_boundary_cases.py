@@ -1,9 +1,10 @@
-"""Separate Iris classifier errors from density-based outliers.
+"""Characterise Iris cross-validated model-error and boundary cases.
 
 The seven rows highlighted by ``e4_model_errors.py`` are the union of
 out-of-fold mistakes from three supervised probes.  That construction makes
 them difficult classification cases; it does *not* by itself make them
-statistical outliers.  This script keeps the definitions separate.
+statistical outliers.  This script keeps the definitions separate and does
+not rebrand the classifier-error union as an anomaly detector.
 
 It writes one descriptive row-level table containing:
 
@@ -229,7 +230,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--out",
         type=Path,
-        default=Path("results/data/iris_anomaly_typology.csv"),
+        default=Path("results/data/iris_classification_boundary_cases.csv"),
     )
     return parser.parse_args()
 
