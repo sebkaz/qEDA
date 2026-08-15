@@ -1,4 +1,4 @@
-# qEDA reproducibility package
+# qEDA: reproducibility package and audit toolkit
 
 Reference computations for *Beyond the kernel: exploratory analysis of quantum
 encodings of tabular data through the class density operator*.
@@ -7,6 +7,12 @@ This repository contains exactly the numerical evidence used by the
 manuscript: implementation controls, matched-moment topology audit, 55-variant
 benchmark audit, Iris sample-level audit, and the held-out credit-card fraud
 case study. It makes no quantum-advantage or classical-intractability claim.
+
+It also exposes a small public API for auditing a new declared statevector
+encoding. The API reads the same three profiles as the paper: spectral,
+declared-subsystem, and feature-mode coherence. It accepts either a direct
+``row -> statevector`` function or a PennyLane circuit with signature
+``circuit(features, wires)``.
 
 The unit of analysis is `(dataset, encoding)`. The matched pair is the real
 product control `J = 0` and the partial-correlation sandwich
@@ -82,6 +88,40 @@ external public data table described below.
 # Rebuild the computation guide
 .venv/bin/python docs/build_computation_summary.py
 ```
+
+## Audit a custom PennyLane circuit
+
+The adapter deliberately asks for a state-preparation circuit, not a trained
+model. qEDA then constructs the empirical density operator of the encoded rows
+and reports all three readings.
+
+```python
+import pennylane as qml
+from qeda import audit, pennylane_encoding
+
+def circuit(features, wires):
+    for value, wire in zip(features, wires, strict=True):
+        qml.RY(value, wires=wire)
+    qml.CZ(wires=[wires[0], wires[1]])
+
+encoding = pennylane_encoding(circuit, n_qubits=2)
+report = audit(data[:, :2], encoding, name="RY--CZ")
+print(report.to_markdown())
+```
+
+For the matched manuscript control and a layered sandwich, use
+``product_ry_circuit`` and ``sandwich_circuit``.  With its default
+``rescale_features=True``, a depth-$L$ sandwich receives ``x/L`` in each
+block, preserving the total product-angle map at ``J=0`` while allowing the
+coupled circuit to be tested at several depths.
+
+```sh
+.venv/bin/python examples/iris_pennylane_audit.py
+```
+
+The Iris example reports product control versus one- and two-layer sandwich
+encodings on the same setosa rows.  It is intentionally an audit of the
+representation, not a classifier benchmark.
 
 ## External data
 
