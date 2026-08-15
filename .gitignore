@@ -1,0 +1,16 @@
+# Python and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+
+# Local tooling and operating-system metadata
+.DS_Store
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# External credit-card data: retrieve separately, never commit.
+data/credit-card/credit.csv
+
+# Locally regenerated supplementary report
+results/pdf/spectral_eda_report.pdf

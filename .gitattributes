@@ -1,0 +1,6 @@
+# Keep generated figures out of textual diffs.
+*.pdf binary
+*.png binary
+
+# Frozen tables intentionally preserve the producer's terminal blank line.
+*.csv text eol=lf whitespace=-blank-at-eof

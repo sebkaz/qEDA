@@ -1,0 +1,5 @@
+encoding,gate_algebra_abelian,input_compatible,Z_readout_compatible,operationally_abelian,max_gate_commutator,max_input_commutator,max_readout_commutator,mean_state_projector_commutator,purity,mass_gap,mutual_information,log_negativity,max_current,rho_imag_frobenius,max_gram_imag,max_bargmann_phase_rad
+RZ-ZZ-RZ (computationally diagonal),True,True,True,True,0.0,0.0,0.0,0.0,1.0,inf,0.0,0.0,0.0,0.0,1.0000000000000002,3.110101628018658e-16
+RY product control,True,False,False,False,0.0,0.3535533905932738,0.5,0.5769418798863178,0.5080077346354632,1.6769127997862938,0.06686407979149162,0.0,0.0,0.0,0.0,0.0
+RY-YY-RY (commuting generators),True,False,False,False,0.0,0.3535533905932738,0.5,0.5769418798863178,0.5080077346354636,1.676912799786294,0.6935764822949881,0.4824443600872387,0.056591975890644686,0.45654087354362843,7.216449660063518e-16,3.102830822490371
+RY-ZZ-RY (sandwich),False,False,False,False,0.5,0.3535533905932738,0.5,0.595130036692485,0.61640543735383,2.171357456399977,0.3188449250341967,0.26387377332540984,0.034553164908720534,0.4688286423950665,0.4009219992527034,1.0133843466149035

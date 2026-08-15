@@ -1,0 +1,10 @@
+experiment,metric,J0,J_partial,notes
+operator_gram,spectrum_max_abs_error,1.94e-16,1.11e-16,Nonzero spectra of rho and G divided by M
+operator_gram,gram_max_abs_imaginary,0.0,0.04408,Complex overlap structure appears after coupling
+operator_gram,bargmann_phase_radians,0.0,0.00456,Three-state closed-loop phase
+synthetic_profile,purity,0.595760,0.712364,Same correlated synthetic table
+synthetic_profile,mutual_information_bits,0.041168,0.449903,Mean single-mode versus rest
+synthetic_profile,log_negativity,0.0,0.406623,Mean single-mode cut
+synthetic_profile,max_encoded_current,0.0,0.064356,Basis-explicit imaginary mode coherence
+current_witness,max_encoded_current,0.0,0.06876,Independent real-control check
+
