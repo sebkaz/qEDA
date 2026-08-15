@@ -27,7 +27,7 @@ not fitted per dataset or per result.
 | `scripts/01_controls/` | Algebra, complex-Gram, current, and coupling-sign controls. |
 | `scripts/02_topology/` | Matched ring-versus-disk relevance audit and loop-phase control. |
 | `scripts/03_benchmark/` | Regeneration and qEDA analysis of the 55 Bowles variants. |
-| `scripts/04_iris/` | Cross-fitted Iris audit, random-coupling/Haar controls, and sensitivity grid. |
+| `scripts/04_iris/` | Cross-fitted Iris audit, error-versus-outlier typology, random-coupling/Haar controls, and sensitivity grid. |
 | `scripts/05_fraud/` | One-class held-out credit-card audit. |
 | `src/qml_benchmarks/data/` | Vendored NumPy-only benchmark generators; upstream license is retained. |
 | `results/` | Frozen CSV tables, publication figures, and computation summary. |
@@ -79,6 +79,7 @@ external public data table described below.
 
 # 4. Iris audit and its controls
 .venv/bin/python scripts/04_iris/e4_model_errors.py
+.venv/bin/python scripts/04_iris/anomaly_typology.py
 .venv/bin/python scripts/04_iris/null_controls.py
 .venv/bin/python scripts/04_iris/sensitivity_analysis.py
 
