@@ -1,13 +1,23 @@
 # Python and virtual environments
 __pycache__/
 *.py[cod]
+*.so
 .venv/
+env/
+venv/
+build/
+dist/
+*.egg-info/
 
 # Local tooling and operating-system metadata
 .DS_Store
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.coverage
+htmlcov/
+.env
+.vscode/
 
 # External credit-card data: retrieve separately, never commit.
 data/credit-card/credit.csv
